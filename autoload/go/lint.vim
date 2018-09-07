@@ -207,6 +207,10 @@ function! s:lint_job(args, autosave)
     let l:opts.for = "GoMetaLinterAutoSave"
   endif
 
+  if g:go_metalinter_autosave_jump_disabled 
+    let l:opts.bang = 1
+  endif
+
   let l:cbs = go#job#Options(l:opts)
 
   if a:autosave
